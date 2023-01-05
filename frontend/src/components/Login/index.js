@@ -101,7 +101,7 @@ function LoginLocalForm(props) {
       </div>
 
       <Link className={classes.forgotPw} to={ROUTES.FORGOT_PASSWORD}>
-        Quên mật khẩu ?
+       Đổi mật khẩu & Quên mật khẩu ?
       </Link>
 
       <Button
@@ -115,9 +115,9 @@ function LoginLocalForm(props) {
         Đăng nhập
       </Button>
 
-      <div className="or-option w-100 t-center">HOẶC</div>
+      {/* <div className="or-option w-100 t-center">HOẶC</div> */}
 
-      {props.children}
+      {/* {props.children} */}
     </form>
   );
 }

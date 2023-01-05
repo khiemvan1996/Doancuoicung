@@ -5,7 +5,6 @@ import useTitle from 'hooks/useTitle';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles/login-signup.scss';
-
 function RegisterPage() {
   useTitle('Đăng ký');
   useCloseNavigation();

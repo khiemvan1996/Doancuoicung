@@ -341,13 +341,13 @@ exports.getVerifyCode = async (req, res) => {
 exports.getUserProfile = async (req, res, next) => {
   try {
     if (!req.user) {
-      return res.status(403).json({ message: 'failed' });
+      return res.status(403).json({ message: 'failedsssss' });
     }
     const { accountId } = req.user;
 
     const userInfo = await getProfile(accountId);
     if (!userInfo) {
-      return res.status(403).json({ message: 'failed' });
+      return res.status(403).json({ message: 'failedssss' });
     }
 
     return res

@@ -16,7 +16,7 @@ import { ROUTES } from 'constant';
 import useScrollTop from 'hooks/useScrollTop';
 import useTitle from 'hooks/useTitle';
 import React from 'react';
-
+import ImagetoTextScreen from './ImageToText';
 const FEATURE_LIST = [
   {
     title: 'Bảng phiên âm (IPA)',
@@ -44,12 +44,6 @@ const FEATURE_LIST = [
     imgUrl: dictionaryIcon,
     to: ROUTES.DYNO_DICTIONARY,
   },
-  // {
-  //   title: 'Từ vựng TOEIC',
-  //   subTitle: 'Các từ vựng thường gặp trong đề thi Toeic',
-  //   imgUrl: toeicIcon,
-  //   to: ROUTES.TOEIC_DICTIONARY,
-  // },
   {
     title: 'Từ vựng yêu thích của bạn',
     imgUrl: favoriteIcon,
@@ -76,6 +70,12 @@ const FEATURE_LIST = [
     to: ROUTES.GAMES.HOME,
   },
   {
+    title: 'Chuyển ảnh sang văn bản',
+    subTitle: 'ImagetoText',
+    imgUrl: toeicIcon,
+    to: ROUTES.TOEIC_DICTIONARY,
+  },
+  {
     title: 'Bảng xếp hạng',
     imgUrl: medalIcon,
     subTitle: 'Cùng xem thành tích của bạn bè và những người khác nhé',
@@ -88,6 +88,13 @@ const FEATURE_LIST = [
       'EK rất mong được sự đóng góp của bạn. Bạn có thể thêm từ mới, sửa lỗi sai',
     to: ROUTES.CONTRIBUTION,
   },
+  // {
+  //   title: 'Chuyển ảnh sang văn bản',
+  //   imgUrl: cameraIcon,
+  //   subTitle:
+  //     'EK sẽ giúp bản chuyển ảnh sang văn bản',
+  //   to: ROUTES.IMAGETOTEXT,
+  // },
 ];
 
 function HomePage() {
@@ -96,9 +103,10 @@ function HomePage() {
 
   return (
     <div className="container my-10">
+      {/* <ImagetoTextScreen /> */}
       <Grid container spacing={3}>
         {FEATURE_LIST.map((box, index) => (
-          <Grid item xs={12} md={6} lg={4} key={index}>
+          <Grid item xs={12} md={12} lg={6} key={index}>
             <FeatureBox
               imgUrl={box.imgUrl}
               title={box.title}

@@ -1,6 +1,7 @@
 import Logout from 'components/Logout';
 import { ROUTES } from 'constant';
 import HomePage from 'pages/Home';
+import ImagetoTextScreen from 'pages/ImageToText';
 import React from 'react';
 import { Route } from 'react-router';
 const RegisterPage = React.lazy(() => import('pages/Register'));
@@ -97,7 +98,8 @@ const routes = [
     path: ROUTES.TOEIC_DICTIONARY,
     exact: false,
     isProtect: false,
-    component: () => <DynoDictionaryPage isTOEIC={true} />,
+    // component: () => <DynoDictionaryPage isTOEIC={true} />,
+    component: () => <ImagetoTextScreen />
   },
   {
     path: ROUTES.COMMUNICATION_PHRASE,
@@ -147,6 +149,12 @@ const routes = [
     isProtect: false,
     component: () => <FastGamePage />,
   },
+  {
+    path: ROUTES.IMAGETOTEXT,
+    exact: false,
+    isProtect: false,
+    component: () => <ImagetoTextScreen />
+  }
 ];
 
 const renderRoutes = (routes, isAuth = false) => {

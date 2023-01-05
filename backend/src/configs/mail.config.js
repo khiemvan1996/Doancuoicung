@@ -8,7 +8,7 @@ const option = {
   secure: false,
   auth: {
     user: process.env.NODE_MAILER_USER,
-    pass: process.env.NODE_MAILER_PASSWORD,
+    pass: "tyohajfublkrfrqq",
   },
 };
 
@@ -22,7 +22,7 @@ const sendEmail = async ({ to, subject, text, html, ...rest }) => {
       //config mail
       const mail = {
         //sender access
-        from: '"Khiem" <khiemvan1996@gmail.com>',
+        from: '"EK website" <khiemvan1996@gmail.com>',
         //receiver access
         to,
         //subject

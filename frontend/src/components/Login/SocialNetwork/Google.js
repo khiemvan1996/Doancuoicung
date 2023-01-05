@@ -50,7 +50,8 @@ function LoginGoogle() {
 
   return (
     <GoogleLogin
-      clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+      clientId="943606709247-8a3e5prvgc1f600k56j7k4bvp8f522ku.apps.googleusercontent.com"
+
       autoLoad={false}
       render={(renderProps) => (
         <div

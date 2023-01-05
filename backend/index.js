@@ -20,6 +20,7 @@ const commonApi = require('./src/apis/common.api');
 const sentenceApi = require('./src/apis/sentence.api');
 const blogApi = require('./src/apis/blog.api');
 const highscoreApi = require('./src/apis/highscore.api');
+const imageToTextApi = require('./src/apis/imagetotext_api');
 const passportConfig = require('./src/middlewares/passport.middleware');
 
 // ================== set port ==================
@@ -43,7 +44,7 @@ if (!dev) {
   app.get('/apis/wakeup-heroku', (req, res) => res.send('ok'));
   const timer = 25 * 60 * 1000; // 25 minutes
   setInterval(() => {
-    https.get('https://dynonary.herokuapp.com/apis/wakeup-heroku');
+    https.get('');
   }, timer);
 } else {
   app.use(morgan('dev'));
@@ -79,6 +80,7 @@ app.use(`${BASE_URL}/flashcard`, flashcardApi);
 app.use(`${BASE_URL}/common`, commonApi);
 app.use(`${BASE_URL}/sentence`, sentenceApi);
 app.use(`${BASE_URL}/blog`, blogApi);
+app.use(`${BASE_URL}/image`,imageToTextApi)
 app.use(
   `${BASE_URL}/highscore`,
   passportConfig.jwtAuthentication,
