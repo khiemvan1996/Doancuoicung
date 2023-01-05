@@ -8,6 +8,7 @@ import friendsIcon from 'assets/icons/friends.png';
 import gameIcon from 'assets/icons/game.png';
 import grammarIcon from 'assets/icons/grammar.png';
 import ipaIcon from 'assets/icons/ipa.png';
+import likeIcon from 'assets/icons/like.png';
 import toeicIcon from 'assets/icons/toeic.png';
 import verbIcon from 'assets/icons/verb.png';
 import medalIcon from 'assets/icons/medal.png';
@@ -18,6 +19,12 @@ import useTitle from 'hooks/useTitle';
 import React from 'react';
 import ImagetoTextScreen from './ImageToText';
 const FEATURE_LIST = [
+  {
+    title: 'Từ vựng hôm nay',
+    subTitle: 'Tối đa 10 từ vựng dựa trên sở thích gần đây của bạn',
+    imgUrl: likeIcon,
+    to: ROUTES.RECOMMEND,
+  },
   {
     title: 'Bảng phiên âm (IPA)',
     subTitle:
@@ -33,8 +40,7 @@ const FEATURE_LIST = [
   },
   {
     title: 'Từ vựng với Flashcard',
-    subTitle:
-      'Flashcard phương pháp học từ vựng nổi tiếng.',
+    subTitle: 'Flashcard phương pháp học từ vựng nổi tiếng.',
     imgUrl: flashcardIcon,
     to: ROUTES.FLASHCARD,
   },

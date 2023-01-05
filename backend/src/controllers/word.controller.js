@@ -1,3 +1,4 @@
+const { RECOMMEND_MODEL } = require('../constant');
 const {
   isExistWord,
   uploadImage,
@@ -8,7 +9,16 @@ const {
   searchWord,
   getWordDetail,
   getFavoriteList,
+  getAllWordToModel,
+  getWordFromRecommend,
 } = require('../services/word.service');
+
+const ContentBasedRecommender = require('content-based-recommender');
+const WordModel = require('../models/word.model');
+const recommender = new ContentBasedRecommender({
+  minScore: 0.1,
+  maxSimilarDocuments: 100,
+});
 
 exports.postContributeWord = async (req, res, next) => {
   try {
@@ -141,6 +151,42 @@ exports.getUserFavoriteList = async (req, res, next) => {
     return res.status(200).json({ packList });
   } catch (error) {
     console.error(' ERROR: ', error);
+    return res.status(500).json({ message: 'Lỗi dịch vụ, thử lại sau' });
+  }
+};
+
+exports.getRecommendWords = async (req, res, next) => {
+  try {
+    if (!req.user) {
+      return res.status(403).json({ message: 'failedsssss' });
+    }
+    const { favoriteList } = req.user;
+
+    const wordProfiles = await getAllWordToModel();
+
+    recommender.train(wordProfiles);
+
+    const lastWordLiked = await WordModel.findOne({
+      word: favoriteList[favoriteList.length - 1],
+    });
+
+    var similarDocuments = recommender.getSimilarDocuments(
+      lastWordLiked._id,
+      0,
+      10,
+    );
+
+    similarDocuments.forEach(async (word, index) => {
+      similarDocuments[index] = await WordModel.findOne({ _id: word.id });
+
+      if (index === similarDocuments.length - 1) {
+        return res.status(200).json({
+          similarDocuments: similarDocuments,
+        });
+      }
+    });
+  } catch (error) {
+    console.error('GET RECOMMEND WORDS: ', error);
     return res.status(500).json({ message: 'Lỗi dịch vụ, thử lại sau' });
   }
 };

@@ -19,6 +19,7 @@ const {
   KEYS,
   ACCOUNT_TYPES,
   MAX,
+  RECOMMEND_MODEL,
 } = require('../constant');
 const jwtConfig = require('../configs/jwt.config');
 const express = require('express');

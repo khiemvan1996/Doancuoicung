@@ -57,3 +57,19 @@ exports.getFavoriteList = async (rawFavorites = []) => {
     throw error;
   }
 };
+
+exports.getAllWordToModel = async () => {
+  try {
+    var words = [];
+    for (let word of await WordModel.find().select('_id examples').lean()) {
+      word?.examples[0] != undefined &&
+        words.push({
+          id: word._id,
+          content: word.examples[0],
+        });
+    }
+    return words;
+  } catch (error) {
+    console.error(' ERROR: ', error);
+  }
+};

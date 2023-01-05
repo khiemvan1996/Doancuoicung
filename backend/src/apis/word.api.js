@@ -14,4 +14,6 @@ wordApi.get(
   wordController.getUserFavoriteList,
 );
 
+wordApi.get('/recommend', jwtAuthentication, wordController.getRecommendWords);
+
 module.exports = wordApi;

@@ -33,6 +33,11 @@ const wordApi = {
       params: { page, perPage, sortType },
     });
   },
+
+  getRecommendWord: ()=>{
+    return axiosClient.get(`${URL}/recommend`)
+  }
+
 };
 
 export default wordApi;

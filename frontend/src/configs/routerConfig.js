@@ -7,6 +7,7 @@ import { Route } from 'react-router';
 const RegisterPage = React.lazy(() => import('pages/Register'));
 const LoginPage = React.lazy(() => import('pages/Login'));
 const IPAPage = React.lazy(() => import('pages/IPA'));
+const RecommendWordPage = React.lazy(() => import('pages/RecommendWord'));
 const ContributionPage = React.lazy(() => import('pages/Contribution'));
 const PlayGamesPage = React.lazy(() => import('pages/PlayGames'));
 const FlashcardPage = React.lazy(() => import('pages/Flashcard'));
@@ -28,6 +29,12 @@ const LeaderBoardPage = React.lazy(() => import('pages/LeaderBoard'));
 
 // routes for app
 const routes = [
+  {
+    path: ROUTES.RECOMMEND,
+    exact: true,
+    isProtect: false,
+    component: () => <RecommendWordPage />,
+  },
   {
     path: ROUTES.HOME,
     exact: true,
@@ -99,7 +106,7 @@ const routes = [
     exact: false,
     isProtect: false,
     // component: () => <DynoDictionaryPage isTOEIC={true} />,
-    component: () => <ImagetoTextScreen />
+    component: () => <ImagetoTextScreen />,
   },
   {
     path: ROUTES.COMMUNICATION_PHRASE,
@@ -153,8 +160,8 @@ const routes = [
     path: ROUTES.IMAGETOTEXT,
     exact: false,
     isProtect: false,
-    component: () => <ImagetoTextScreen />
-  }
+    component: () => <ImagetoTextScreen />,
+  },
 ];
 
 const renderRoutes = (routes, isAuth = false) => {

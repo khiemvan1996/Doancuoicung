@@ -81,6 +81,7 @@ export const ROUTES = {
     GRAMMARLY: '/games/grammarly',
     VIP: '/games/vip',
   },
+  RECOMMEND: '/recommend',
 };
 
 export const REGEX = {
