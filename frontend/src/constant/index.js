@@ -82,6 +82,8 @@ export const ROUTES = {
     VIP: '/games/vip',
   },
   RECOMMEND: '/recommend',
+  ADMIN:'/admin',
+  DASHBOARD:'/dashboard',
 };
 
 export const REGEX = {

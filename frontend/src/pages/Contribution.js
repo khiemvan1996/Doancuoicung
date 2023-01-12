@@ -4,9 +4,9 @@ import useTitle from 'hooks/useTitle';
 import React from 'react';
 
 function ContributionPage() {
+    
   useTitle('Đóng góp');
   useScrollTop();
-
   return <Contribution />;
 }
 

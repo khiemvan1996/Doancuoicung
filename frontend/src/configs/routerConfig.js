@@ -8,6 +8,8 @@ const RegisterPage = React.lazy(() => import('pages/Register'));
 const LoginPage = React.lazy(() => import('pages/Login'));
 const IPAPage = React.lazy(() => import('pages/IPA'));
 const RecommendWordPage = React.lazy(() => import('pages/RecommendWord'));
+const Admin = React.lazy(()=> import('pages/Admin'));
+const dashboard = React.lazy(()=> import('pages/Dashboard'));
 const ContributionPage = React.lazy(() => import('pages/Contribution'));
 const PlayGamesPage = React.lazy(() => import('pages/PlayGames'));
 const FlashcardPage = React.lazy(() => import('pages/Flashcard'));
@@ -35,6 +37,12 @@ const routes = [
     isProtect: false,
     component: () => <RecommendWordPage />,
   },
+    {
+      path: ROUTES.ADMIN,
+      exact: true,
+      isProtect: false,
+      component: () => <Admin />,
+    },
   {
     path: ROUTES.HOME,
     exact: true,

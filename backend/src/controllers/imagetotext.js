@@ -1,17 +1,16 @@
-const transferImageToText = require("tesseract.js")
+const translate = require('translate-google');
 
-// const image = require('../images/paragraph1.png')
-const handleImageToText = async(req,res) => {
-    // const {url_image} = req.body
-    const text =  await transferImageToText.
-    recognize('../images/paragraph1.png','vie', {logger: e => console.log(e) })
-    .then(out => {return out})
-
-    console.log(text)
-    return res.status(200).json({ message: 'Chuyển đổi thành công !',data:text });
+// apis/image/translate
+const handleTranslate =  async(req,res) => {
+    const {text,target } = req.body;
+    const result = await translate(text, {to: target}).then(res => {
+        return res
+    }).catch(err => {
+        return err
+    })
+    return res.status(200).json({data:result})
 }
 
-
 module.exports = {
-    handleImageToText
+    handleTranslate
 }
